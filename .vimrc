@@ -1,57 +1,62 @@
-" Turn off Vi compatibility mode
 set nocompatible
 
-" Run Pathogen so it can load the other plugins
 call pathogen#infect()
 
-" Make sure Vim is running in 256 colors, set the colorscheme and turn on
-" highlighting
-set t_Co=256
 set background=light
 colorscheme solarized
+set t_Co=256
+let g:solarized_termcolors=256
 syntax on
+
 filetype plugin indent on
 
-" Disable Vim's backup files to reduce clutter
 set nobackup
 set nowritebackup
 
-" Misc settings
-let mapleader=',' " Change the mapleader to a easier key
-set nu " Turn on line numbers
-set visualbell t_vb= " Turn off Vim's bell
-set backspace=2 " Make sure that backspace works correctly
-set hidden " Keeps buffers alive
-set tabstop=4 " Keep tabs equal to 4 spaces
-set autoindent " Keep the indentation level the same
-set copyindent " Keep the indentation level the same
-set shiftwidth=4 " Make sure autoindentation is also 4 spaces
-set shiftround " Helps when indenting with < and >
-set showmatch " Shows the start (or end) of matching brackets
-set smartcase " Allows a all lower-case search to be case-insensitive
-set hlsearch " Highlights search term
-set incsearch " Searches while typing
-
-" Makes Vim remember more
+set hidden
+set nu
 set history=1000
 set undolevels=1000
+let mapleader=','
+set hlsearch
+set incsearch
 
-" Makes ; behave like : in normal mode
-nnoremap ; :
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
 
-" Powerline settings
+set backspace=indent,eol,start
+
+" Easier split navigation
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Powerline
 set encoding=utf-8
 set laststatus=2
 let g:Powerline_symbols='fancy'
 
-" NERDTree settings
-"map <leader><F5> :NERDTreeToggle<CR>
+" Supertab
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+let g:SuperTabLongestEnhanced = '1'
+
+" Ack
+nmap <leader>a <Esc>:Ack!
+
+" NERDTree
 map <F5> :NERDTreeToggle<CR>
 
-" Tagbar settings
-"map <leader><F6> :TagbarToggle<CR>
+" Tagbar
 map <F6> :TagbarToggle<CR>
 
-" Vimwiki settings
-"map <leader><F8> :VimwikiIndex<CR>
-map <F8> :VimwikiIndex<CR>
+" Flake8
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
+
+" Gundo
+nnoremap <F8> :GundoToggle<CR>
