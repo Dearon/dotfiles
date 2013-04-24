@@ -48,7 +48,12 @@ rake make; \
 cd ~/.vim
 ````
 
-* Copy .vimrc to ~/
+* Backup the old .vimrc and download this one
+````
+cp ~/.vimrc ~/.vimrc.old; \
+curl -Sso ~/.vimrc \
+    https://raw.github.com/Dearon/dotfiles/master/.vimrc
+````
 
 * Add the following code to your .bashrc
 ````
