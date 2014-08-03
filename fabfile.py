@@ -49,7 +49,7 @@ vim_bundles = [
 
 def pacman():
     local('sudo pacman -Syu')
-    local('sudo pacman -S git ruby zsh tk gvim ack wget curl cabal-install xmobar dmenu python2-psutil python2-pygit2 chromium firefox xautolock xchat pragha vlc gst-plugins-good gst-plugins-bad thunar thunar-volman p7zip wxgtk2.8 evince unrar unzip gnome-icon-theme keepassx steam')
+    local('sudo pacman -S ruby zsh tk gvim ack wget curl cabal-install xmobar dmenu python2-psutil python2-pygit2 chromium firefox xautolock xchat pragha vlc gst-plugins-good gst-plugins-bad thunar thunar-volman p7zip wxgtk2.8 evince unrar unzip gnome-icon-theme keepassx steam')
 
 def yaourt():
     local('yaourt -Syua')
