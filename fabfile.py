@@ -61,10 +61,13 @@ def yaourt():
     local('yaourt -S hal')
 
 def cabal():
+    local('cabal update')
     local('sudo cabal install yeganesh --global')
 
 def oh_my_zsh():
     local('curl -L http://install.ohmyz.sh | sh')
+    local('cp ~/.zshrc.pre-oh-my-zsh ~/.zshrc')
+    local('chsh -s $(which shell)')
 
 def install_vim():
     local('mkdir -p ~/.vim/autoload ~/.vim/bundle')
@@ -73,8 +76,7 @@ def install_vim():
     for bundle in vim_bundles:
         local('git clone ' + bundle['git'] + ' ' + bundle['path'])
 
-    local('cd ~/.vim/bundle/command-t/ruby/command-t')
-    local('ruby extconf.rb && make')
+    local('cd ~/.vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make')
     local('cd ~')
 
 def update_vim():
