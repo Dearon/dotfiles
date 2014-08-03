@@ -2,7 +2,7 @@ The dotfiles I am currently using. I have also included a fabfile for [Fabric](h
 
 Steps to get a basic install going:
 * Install a minimal install of Arch Linux, including X11, Xmonad, slim, fabric and git
-* Clone this repo into ~ on your user account
+* Clone this repo into ~
 * Run "fab pacman"
 * Install yaourt
 * Run "fab yaourt"
