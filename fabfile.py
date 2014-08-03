@@ -50,7 +50,6 @@ vim_bundles = [
 def pacman():
     local('sudo pacman -Syu')
     local('sudo pacman -S ruby zsh tk gvim ack wget curl cabal-install xmonad-contrib xmobar dmenu python2-psutil python2-pygit2 chromium firefox xautolock xchat pragha vlc gst-plugins-good gst-plugins-bad thunar thunar-volman p7zip wxgtk2.8 evince unrar unzip gnome-icon-theme keepassx steam')
-    local('xmonad --recompile')
 
 def yaourt():
     local('yaourt -Syua')
@@ -60,6 +59,7 @@ def yaourt():
     local('yaourt -S conky-cli')
     local('yaourt -S sxlock-git')
     local('yaourt -S hal')
+    local('xmonad --recompile')
 
 def cabal():
     local('cabal update')
